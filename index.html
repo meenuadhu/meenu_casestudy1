@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/style.css">
+<style>
+    .hero-image {
+  background-image: url("./images/todo1.jpg");
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+
+.hero-text  .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: red;
+  color:white;
+  font-size: 16px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.hero-text .btn:hover {
+  background-color: black;
+  color:white;
+}
+</style>
+</head>
+<body>
+    <div class="hero-image">
+        <div class="hero-text">
+       <!-- <button class="btn">Get Started</button> -->
+       <button class="btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Get Started</button>
+           <!-- <button>Hire me</button> -->
+        </div>
+      </div>
+
+
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="./images/login.png" alt="Avatar"  class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" id="username" placeholder="Enter Username" name="uname" >
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" id="password" placeholder="Enter Password" name="psw" >
+        
+      <button type="submit" onclick="validate();" >Login</button>
+      
+    </div>
+
+    
+  </form>
+</div>
+
+<script src="./login.html">
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+
+
+</script>
+
+</body>
+</html>
