@@ -1,15 +1,15 @@
 var state = [];
 
-function setDefaultState() {
-  var id = generateID();
-  var baseState = {};
-  baseState[id] = {
-    status: "new",
-    id: id,
-    title: "This site uses 🍪to keep track of your tasks"
-  };
-  syncState(baseState);
-}
+// function setDefaultState() {
+//   var id = generateID();
+//   var baseState = {};
+//   baseState[id] = {
+//     status: "new",
+//     id: id,
+//     title: "This site uses 🍪to keep track of your tasks"
+//   };
+//   syncState(baseState);
+// }
 
 function generateID() {
   var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
@@ -309,7 +309,7 @@ function validate(user,pass) {
     alert("Login Failed!")
     }
     return result;
-    
+   
   }
   function check(upass) {
    
@@ -321,4 +321,4 @@ function validate(user,pass) {
     if( redirect)
     window.location = "index.html";
     return( redirect);
-  }
+  } 

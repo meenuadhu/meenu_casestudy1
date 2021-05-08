@@ -39,18 +39,7 @@ function show(data) {
 	<td>${r.title}</td>
 	<td><input type="checkbox" id="status" name="status" value=${r.completed}"> </td>	
 </tr>`;
-// var cbs = $("input:checkbox"); //find all checkboxes
-// var nbCbs = cbs.length; //the number of checkboxes
-
-// var checked = $("input[@type=checkbox]:checked"); //find all checked checkboxes + radio buttons
-// var nbChecked = checked.length;
-
-
-
-
 	}
-    // document.getElementById("employees").innerHTML = tab;
-	// Setting innerHTML as tab variable
 	document.getElementById("todo").innerHTML = tab;
 }
 document.getElementById('select').onclick = function() {
