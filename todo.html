@@ -1,32 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- <script src="script.js"></script>
-		<link rel="stylesheet" href="style.css" /> -->
-        <link rel="stylesheet" href="./css/style.css">
-		<meta charset="UTF-8" />
-		<meta name="viewport"content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<!-- Here a loader is created which
-			loads till response comes -->
-		<div class="d-flex justify-content-center">
-			<div class="spinner-border"
-				role="status" id="loading">
-				<span class="sr-only">Loading...</span>
-			</div>
-		</div>
-        <button id="select">Select Two Wheelers</button>
-		<!-- table for showing data -->
-		<table id="todo">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/todo.css">
+    <title>Document</title>
+</head>
+<body>
+    
+   
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+          
+            <a class="nav-item nav-link" href="#">Todo List</a>
+            <a class="nav-item nav-link" href="./index.html">Logout</a>
            
-        </table>
+            <!-- <a class="nav-item nav-link disabled" href="#">Disabled</a> -->
+          </div>
+        </div>
+      </nav>
 
 
-<script src="./todo.js"></script>
 
-	</body>
+<!-- Here a loader is created which
+			loads till response comes -->
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border"
+                    role="status" id="loading">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <button id="select">Select Two Wheelers</button>
+            <!-- table for showing data -->
+            <table id="todo">
+               
+            </table>
+    
+    
+    <script>
+        // api url
+    const api_url =
+        "https://jsonplaceholder.typicode.com/todos";
+    
+    // Defining async function
+    async function getapi(url) {
+        
+        // Storing response
+        const response = await fetch(url);
+        
+        // Storing data in form of JSON
+        var data = await response.json();
+        console.log(data);
+        if (response) {
+            hideloader();
+        }
+        show(data);
+    }
+    // Calling that async function
+    getapi(api_url);
+    
+    // Function to hide the loader
+    function hideloader() {
+        document.getElementById('loading').style.display = 'none';
+    }
+    // Function to define innerHTML for HTML table
+    function show(data) {
+        let tab =
+            `<tr>
+             <th>id</th>
+            <th>title</th>
+            <th><input type="checkbox" id="status" name="status" >status</th>
+            </tr>`;
+        
+        // Loop to access all rows
+        for (let r of data) {
+            tab += `<tr>
+        <td>${r.id} </td>
+        <td>${r.title}</td>
+        <td><input type="checkbox" id="status" name="status" value=${r.completed}> </td>	
+    </tr>`;
+    // var cbs = $("input:checkbox"); //find all checkboxes
+    // var nbCbs = cbs.length; //the number of checkboxes
+    
+    // var checked = $("input[@type=checkbox]:checked"); //find all checked checkboxes + radio buttons
+    // var nbChecked = checked.length;
+    
+    // if (r.completed === true) {
+    //           var cbNode = document.createElement("INPUT");
+    //           cbNode.setAttribute("type", "checkbox");
+    //           cbNode.setAttribute("checked", true);
+    //           cbNode.setAttribute("disabled", true);
+    //           cbNode.setAttribute("id", "cb");
+    //         //   tdNode4.appendChild(cbNode);
+    //         } else {
+    //           var cbNode = document.createElement("INPUT");
+    //           cbNode.setAttribute("type", "checkbox");
+    //           cbNode.setAttribute("id", "cb");
+    //           tdNode4.appendChild(cbNode);
+    //         }
+    
+    
+        }
+        
+        // Setting innerHTML as tab variable
+        document.getElementById("todo").innerHTML = tab;
+        console.log(tab);
+    }
+    document.getElementById('select').onclick = function() {
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      if(checkboxes.length==5){
+        alert("mission success");
+      }
+     
+    }
+    
+    </script>
+    
+
+      
+</body>
 </html>
-
-
