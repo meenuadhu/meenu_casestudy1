@@ -1,63 +1,74 @@
-<html lang="en" >
-   <head>
-     
-     
-      <title>Todost ✍️</title>
-      <meta name="viewport" content="height=device-height, initial-scale=1, user-scalable=no">
-     
-      <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
-      <meta charset="UTF-8">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-      <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-      <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css'>
-      <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
-      <link rel="stylesheet" href="./css/style.css">
-   </head>
-   <body>
-      <div class="logo">    
-      </div>
-      <body class="body">
-         <div class="container">
-            <div class="today"></div>  
-         </div>
-        
-         </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body style="background-color: #020631;">
+    <form id ="Formvalidation"  onsubmit="return validate()">
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+            <input id="tab-2" type="text" name="tab" hidden class="sign-up"><label for="tab-2" hidden class="tab"></label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input  type="text" class="input" id="Usernameid" required>                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="Passwordid" required type="password" class="input" data-type="password">                    </div>
+                    <!-- <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                    </div> -->
+                    <div class="col-12 text-center">
+                        <p class="h6 text-danger" id="miscrtpassword" hidden = true></p>
+                      </div>
 
-
-         <form  action="todo.html"id ="Formvalidation"  onsubmit="return validate()">
-         <div class="login-wrap">
-           <div class="login-html">
-             <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-             <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
-             <div class="login-form">
-               <div class="sign-in-htm">
-                 <div class="group">
-                   <label for="user" class="label">Username</label>
-                   <input  type="text" class="input" id="Usernameid" required>
-                 </div>
-                 <div class="group">
-                   <label for="pass" class="label">Password</label>
-                   <input id="Passwordid" required type="password" class="input" data-type="password">
-                 </div>
-                 <div class="col-12 text-center">
-                  <p class="h6 text-danger" id="miscrtpassword" hidden = true></p>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign In">
+                    </div>
+                    <div class="hr"></div>
+                    <!-- <div class="foot-lnk">
+                        <a href="#forgot">Forgot Password?</a>
+                    </div> -->
                 </div>
-                 <div class="group">
-                   <input type="submit" class="button" value="Sign In">
-                 </div>
-               
-               
-             </div>
-           </div>
-         </div>
-        </form>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57635392-5"></script>
-         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-         <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-        <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-        <script >
+                 <!-- <div class="sign-up-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repeat Password</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Email Address</label>
+                        <input id="pass" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign Up">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <label for="tab-1">Already Member?</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    </form>
 
-const username1 = document.getElementById("Usernameid");
+    <script>
+        const username1 = document.getElementById("Usernameid");
 const password1 = document.getElementById("Passwordid");
 const validationElement = document.getElementById("Formvalidation")
 const passwordErr = document.getElementById("miscrtpassword");
@@ -73,21 +84,27 @@ function Check(username,pwd,calb){
 }
 function redirect(result){
     if(result){
+       // console.log("Next page please")
         passwordErr.hidden = true;
         validationElement.setAttribute("action","todo.html")
         return true
     }else{
+       // console.log("dont go to next page.")
         passwordErr.hidden = false;
         passwordErr.innerHTML = "Invalid username/password"
         return false 
     }
 }
 function validate(){
-  return(Check(username1,password1,redirect))
+   // console.log("I am in validate")
+   // console.log(username.value,password.value)
+ return(Check(username1,password1,redirect))
+ 
+
 }
 
 
-        </script>
-   </body>
-   
+
+    </script>
+</body>
 </html>
