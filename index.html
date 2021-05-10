@@ -55,7 +55,39 @@
          <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
          <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
         <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-        <script  src="./login.js"></script>
+        <script >
+
+const username1 = document.getElementById("Usernameid");
+const password1 = document.getElementById("Passwordid");
+const validationElement = document.getElementById("Formvalidation")
+const passwordErr = document.getElementById("miscrtpassword");
+function Check(username,pwd,calb){
+    if(username.value === "admin"){
+        if(pwd.value ==="12345"){
+            return(calb(true))
+            
+        }
+    }
+    return(calb(false))
+    
+}
+function redirect(result){
+    if(result){
+        passwordErr.hidden = true;
+        validationElement.setAttribute("action","todo.html")
+        return true
+    }else{
+        passwordErr.hidden = false;
+        passwordErr.innerHTML = "Invalid username/password"
+        return false 
+    }
+}
+function validate(){
+  return(Check(username1,password1,redirect))
+}
+
+
+        </script>
    </body>
    
 </html>
