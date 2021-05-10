@@ -296,29 +296,33 @@ $(document).ready(function() {
 
 
 
-// login
+const username1 = document.getElementById("Usernameid");
+const password1 = document.getElementById("Passwordid");
+const validationElement = document.getElementById("Formvalidation")
+const passwordErr = document.getElementById("miscrtpassword");
+function Check(username,pwd,calb){
+    if(username.value === "admin"){
+        if(pwd.value ==="12345"){
+            return(calb(true))
+            
+        }
+    }
+    return(calb(false))
+    
+}
+function redirect(result){
+    if(result){
+        passwordErr.hidden = true;
+        validationElement.setAttribute("action","todo.html")
+        return true
+    }else{
+        passwordErr.hidden = false;
+        passwordErr.innerHTML = "Invalid username/password"
+        return false 
+    }
+}
+function validate(){
+  return(Check(username1,password1,redirect))
+}
 
-function validate(user,pass) {
-   
-    if (user=="admin" && pass=="12345"){
-    result =true;
-    alert("Login success");
-    }
-    else{
-     result=false;
-    alert("Login Failed!")
-    }
-    return result;
-   
-  }
-  function check(upass) {
-   
-    var username =  document.getElementById("user").value;
-    var password = document.getElementById("password").value;
-  
-    redirect= upass(x,y);
-  
-    if( redirect)
-    window.location = "index.html";
-    return( redirect);
-  } 
+
