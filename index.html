@@ -8,15 +8,25 @@
     
       <meta charset="UTF-8">
       <meta name="viewport"content="width=device-width, initial-scale=1.0" />
-      
       <link rel="stylesheet" href="./css/style.css">
+
+      <style>
+        .today{
+            color: white;
+              }
+        .h5 text-danger{
+          color: red;
+          font-size: small;
+        }
+      </style>
    </head>
    <body>
       <div class="logo">    
       </div>
       <body class="body">
-         <div class="container">
-            <div class="today"></div>  
+        <div class="container">
+          <center> <div class="today"></div>  </center>
+        </div> 
          </div>
         
          </div>
@@ -38,7 +48,7 @@
                    <input id="Passwordid" required type="password" class="input" data-type="password">
                  </div>
                  <div class="col-12 text-center">
-                 <h5> <p class="h6 text-danger" id="miscrtpassword" hidden = true></p></h5>
+                  <p  class="h5 text-danger"   id="miscrtpassword" hidden = true></p>
                 </div>
                  <div class="group">
                    <input type="submit" class="button" value="Sign In">
